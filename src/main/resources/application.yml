@@ -1,5 +1,12 @@
 server: 
   port: 9091
+
+spring: 
+  datasource: 
+    url : jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf8  #数据库地址
+    username : root                #用户名
+    password : root                #密码
+    driverClassName : com.mysql.jdbc.Driver      #驱动包
    
 jdbc: 
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8  #数据库地址
@@ -8,5 +15,5 @@ jdbc:
     driverClassName: com.mysql.jdbc.Driver      #驱动包
     
 mybatis: 
-  typeAliasesPackage: com.xyz.blog  
+  typeAliasesPackage: com.xyz.blog
   mapperLocations: classpath:mybatis/*.xml

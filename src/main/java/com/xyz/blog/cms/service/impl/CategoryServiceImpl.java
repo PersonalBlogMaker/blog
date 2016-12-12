@@ -1,14 +1,22 @@
 package com.xyz.blog.cms.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
-import com.xyz.blog.cms.domain.CategoryMapper;
+import com.xyz.blog.cms.domain.CategoryDao;
+import com.xyz.blog.cms.domain.entity.Category;
+import com.xyz.blog.cms.service.CategoryService;
 
 @Service
-public class CategoryServiceImpl {
+public class CategoryServiceImpl implements CategoryService{
 	
-	@Autowired
-	private CategoryMapper categoryMapper;
+	@Resource(name="categoryDao")
+	private CategoryDao categoryDao;
+
+	@Override
+	public int addCategory(Category cg) throws Exception {
+		return categoryDao.saveCategory(cg);
+	}
 	
 }
