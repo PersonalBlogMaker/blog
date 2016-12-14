@@ -3,8 +3,24 @@
 <mapper namespace="com.xyz.blog.cms.domain.CategoryDao">
     
     <!-- 若不需要自动返回主键，将useGeneratedKeys="true" keyProperty="id"去掉即可(当然如果不需要自动返回主键，直接用注解即可) -->
-    <insert id="saveCategory" parameterType="Category" >
-    	insert into category(id,description) values(#{id},#{description});
+    <insert id="addCategory" parameterType="Category" >
+    	insert into category(id,name,description,create_by,create_date) values(#{id},#{name},#{description},#{createBy},#{createDate});
    	</insert>
+    <select id="getListCategory" parameterType="Category" resultMap="CategoryResultMap">
+    	select id, name, description, create_by, update_by, DATE_FORMAT(create_date,'%Y-%m-%d %H:%i:%s') as create_date,
+    	 DATE_FORMAT(update_date,'%Y-%m-%d %H:%i:%s') as update_date from category;
+    </select>
+    <update id="updateCategory" parameterType="Category">
+    	update category set name=#{name}, description=#{description}, update_by=#{updateBy}, update_date=#{updateDate} where id=#{id};
+    </update>
+    
+    <resultMap type="Category" id="CategoryResultMap">
+         <result property="createDate" column="create_date"/>
+         <result property="createBy" column="create_by"/>
+         <result property="updateDate" column="update_date"/>
+         <result property="updateBy" column="update_by"/>
+    </resultMap>
+  	
+  	  
     
 </mapper>

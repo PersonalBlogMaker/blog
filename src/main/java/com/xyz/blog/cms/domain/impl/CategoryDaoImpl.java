@@ -6,11 +6,7 @@ import com.xyz.blog.cms.domain.CategoryDao;
 import com.xyz.blog.cms.domain.entity.Category;
 
 @Repository("jdbcCategoryDao")
-public class CategoryDaoImpl implements CategoryDao {
+public class CategoryDaoImpl{
 
-	@Override
-	public int saveCategory(Category cg) {
-		return 0;
-	}
 
 }
