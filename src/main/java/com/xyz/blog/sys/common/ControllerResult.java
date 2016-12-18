@@ -29,22 +29,22 @@ public class ControllerResult implements Serializable{
 	/**
 	 * 记录数
 	 */
-	private Integer totalElements;
+	private Long totalElements;
 	
 	/**
 	 * 页数
 	 */
-	private Integer totalPages;
+	private Long totalPages;
 	
 	/**
 	 * 每页记录数
 	 */
-	private Integer size ;
+	private Integer pageSize ;
 	
 	/**
 	 * 第几页
 	 */
-	private Integer number;
+	private Integer pageNum;
 	
 	/**
 	 * 是否第一页
@@ -52,7 +52,7 @@ public class ControllerResult implements Serializable{
 	private Boolean first ;
 	
 	/**
-	 * 是否第二页
+	 * 是否最后一页
 	 */
 	private Boolean last ;
 	
@@ -85,36 +85,36 @@ public class ControllerResult implements Serializable{
 		this.msg = msg;
 	}
 
-	public Integer getTotalElements() {
+	public Long getTotalElements() {
 		return totalElements;
 	}
 
-	public void setTotalElements(Integer totalElements) {
+	public void setTotalElements(Long totalElements) {
 		this.totalElements = totalElements;
 	}
 
-	public Integer getTotalPages() {
+	public Long getTotalPages() {
 		return totalPages;
 	}
 
-	public void setTotalPages(Integer totalPages) {
+	public void setTotalPages(Long totalPages) {
 		this.totalPages = totalPages;
 	}
 
-	public Integer getSize() {
-		return size;
+	public Integer getPageSize() {
+		return pageSize;
 	}
 
-	public void setSize(Integer size) {
-		this.size = size;
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
 	}
 
-	public Integer getNumber() {
-		return number;
+	public Integer getPageNum() {
+		return pageNum;
 	}
 
-	public void setNumber(Integer number) {
-		this.number = number;
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
 	}
 
 	public Boolean getFirst() {

@@ -14,6 +14,11 @@ public class Article extends QueryParam implements Serializable{
 	private String id;
 	
 	/**
+	 * 内容
+	 */
+	private String content;
+	
+	/**
 	 * 文章标题
 	 */
 	private String title;
@@ -137,5 +142,12 @@ public class Article extends QueryParam implements Serializable{
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
 	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
 
 }

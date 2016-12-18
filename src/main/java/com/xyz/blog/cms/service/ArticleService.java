@@ -1,8 +1,7 @@
 package com.xyz.blog.cms.service;
 
-import java.util.List;
-
 import com.xyz.blog.cms.domain.entity.Article;
+import com.xyz.blog.sys.common.PageResult;
 
 public interface ArticleService {
 	
@@ -14,7 +13,7 @@ public interface ArticleService {
 	
 	public Article getArticleById(Article article) throws Exception;
 	
-	public List<Article> getListArticle(Article article) throws Exception;
+	public PageResult<Article> getListArticle(Article article) throws Exception;
 	
 	public int topArticle(Article article) throws Exception;
 	

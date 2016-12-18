@@ -14,6 +14,11 @@ public class QueryParam {
 	 * 当前页
 	 */
 	protected Integer pageNum;
+	
+	/**
+	 * 开始index
+	 */
+	protected Long start;
 
 	public Integer getPageSize() {
 		return pageSize;
@@ -31,8 +36,16 @@ public class QueryParam {
 		this.pageNum = pageNum;
 	}
 	
-	public int beginNum(int pageSize, int pageNum){
+	public Long getStart() {
+		return start;
+	}
+
+	public void setStart(Long start) {
+		this.start = this.beginNum(pageSize, pageNum);
+	}
+
+	public Long beginNum(int pageSize, int pageNum){
 		pageNum = (pageNum==0)? 1: pageNum;
-		return	(pageNum-1)*pageSize + pageSize;
+		return	(long) ((pageNum-1)*pageSize + pageSize);
 	}
 }

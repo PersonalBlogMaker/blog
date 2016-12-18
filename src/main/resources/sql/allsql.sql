@@ -18,6 +18,25 @@ CREATE TABLE CATEGORY(
 	update_date DATETIME
 )ENGINE INNODB DEFAULT CHARSET=UTF8;
 
+DROP TABLE IF EXISTS ARTICLE;
+CREATE TABLE ARTICLE(
+	id VARCHAR(64) PRIMARY KEY,
+	content text,
+	category_id VARCHAR(64) NOT NULL,
+	title VARCHAR(255) NOT NULL,
+	keywords VARCHAR(255),
+	description VARCHAR(255),
+	remark VARCHAR(255),
+	weight int DEFAULT 0,
+	weight_date datetime,
+	hits int DEFAULT 0,
+	create_by VARCHAR(64),
+	create_date datetime,
+	update_by VARCHAR(64),
+	update_date datetime,
+	active VARCHAR(64) DEFAULT "1"
+)ENGINE INNODB DEFAULT CHARSET=UTF8;
+
 
 
 
@@ -37,6 +56,6 @@ CREATE TABLE article
 	update_by varchar(64),
 	update_date datetime,
 	remarks varchar(255),
-	del_flag char(1) DEFAULT '0' NOT NULL,
+	del_flag char(1) DEFAULT '1' NOT NULL,
 	PRIMARY KEY (id)
 );
