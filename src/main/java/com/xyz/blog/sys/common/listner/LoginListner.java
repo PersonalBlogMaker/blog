@@ -13,20 +13,22 @@ public class LoginListner implements HttpSessionAttributeListener{
 
 	@Override
 	public void attributeAdded(HttpSessionBindingEvent event) {
-		if("UserSession".equals(event.getName())){
-			SessionManager.setUserSession((HttpSession)event.getValue());
+		if ("UserSession".equals(event.getName())) {
+			if (SessionManager.getUserSession() == null) {
+				SessionManager.setUserSession((HttpSession) event.getValue());
+			}
 		}
 	}
 
 	@Override
 	public void attributeRemoved(HttpSessionBindingEvent event) {
-		
+
 	}
 
 	@Override
 	public void attributeReplaced(HttpSessionBindingEvent event) {
-		if("UserSession".equals(event.getName())){
-			SessionManager.setUserSession((HttpSession)event.getValue());
+		if ("UserSession".equals(event.getName())) {
+			SessionManager.setUserSession((HttpSession) event.getValue());
 		}
 	}
 

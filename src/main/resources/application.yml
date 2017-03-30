@@ -29,6 +29,8 @@ debug: false
 #定义日志打印位置
 logging:
   file: /dev.log
-  path: /Usrs/banma/log/
+  path: /Users/banma/log/
+  config: classpath:log4j2-spring.xml
+
 
 

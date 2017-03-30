@@ -3,6 +3,7 @@ package com.xyz.blog.sys.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import groovy.util.logging.Log4j2;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -16,7 +17,8 @@ import com.xyz.blog.usr.domain.entity.User;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController {
+@Log4j2
+public class LoginController extends BaseController{
 	
 	@Autowired
 	private LoginService loginService;
@@ -24,7 +26,7 @@ public class LoginController {
 	@ApiOperation(value = "跳转到登录页面", notes = "如果用户没有登录，就要跳转到登录页面")
 	@RequestMapping(value = {"","/*"}, method = RequestMethod.GET)
 	public String longin(){
-		System.out.println("进到了登录界面");
+		log.info("跳到了登录界面");
 		return "/login";
 	}
 

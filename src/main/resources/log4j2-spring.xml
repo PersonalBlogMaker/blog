@@ -24,6 +24,7 @@
         <!-- 输出info级别信息 -->
         <Root level="info">
             <AppenderRef ref="Console" />
+            <!--<AppenderRef ref="File" />-->
             <AppenderRef ref="RollingFile" />
         </Root>
     </Loggers>
