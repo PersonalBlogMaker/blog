@@ -4,22 +4,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import com.xyz.blog.sys.common.ControllerResult;
 import com.xyz.blog.sys.service.LoginService;
 import com.xyz.blog.usr.domain.entity.User;
 
-@RestController
+@Controller
 @RequestMapping("/login")
 public class LoginController {
 	
 	@Autowired
 	private LoginService loginService;
-	
-	@RequestMapping(value="/", method=RequestMethod.GET)
+
+	@RequestMapping(value = {"","/*"}, method = RequestMethod.GET)
+	public String longin(){
+		System.out.println("进到了登录界面");
+		return "/login";
+	}
+
+	@ResponseBody
+	@RequestMapping(value="verify", method=RequestMethod.POST)
 	public ControllerResult login(User usr){
 		ControllerResult c = new ControllerResult();
 		try {

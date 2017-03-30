@@ -24,7 +24,7 @@ public class CategoryController {
 	
 	/**
 	 * 保存栏目
-	 * @param c
+	 * @param
 	 * @return
 	 */
 	@RequestMapping(value="/saveCategory", method=RequestMethod.POST)

@@ -10,11 +10,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.xyz.blog.sys.common.SessionManager;
 
-@WebFilter(filterName = "LoginFilter", urlPatterns = "/*")
+//@WebFilter(filterName = "LoginFilter", urlPatterns = "/*")
 public class LoginFilter implements Filter {
 
 	@Override
@@ -38,6 +39,8 @@ public class LoginFilter implements Filter {
 			chain.doFilter(servletRequest, servletResponse);
 		} else {
 			System.out.println("没有登录，请转到登录页面");
+			HttpServletResponse response = (HttpServletResponse)servletResponse;
+			response.sendRedirect("/login");
 		}
 
 	}
