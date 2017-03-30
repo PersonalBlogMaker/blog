@@ -14,23 +14,23 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @Configuration
 @MapperScan("com.xyz.blog.*.domain")
 public class MybatisConfig {
-	
-	@Autowired
-	private Environment evn;
-	
-	@Autowired
-	private DataSource dt;
-	
+
+    @Autowired
+    private Environment evn;
+
+    @Autowired
+    private DataSource dt;
+
 //	@Bean
 //	@Primary
 //	@ConfigurationProperties(prefix="jdbc")
 //	public DataSource getDataSource() throws Exception{
 //		return new DruidDataSource();
 //	}
-	
-	@Bean
-	public SqlSessionFactory sqlSessionFactory(DataSource dt) throws Exception{
-		
+
+    @Bean
+    public SqlSessionFactory sqlSessionFactory(DataSource dt) throws Exception {
+
 //		SqlSessionFactoryBean sfb = new SqlSessionFactoryBean();
 //		sfb.setDataSource(dt);
 //		sfb.setTypeAliasesPackage(evn.getProperty("mybatis.typeAliasesPackage"));
@@ -46,8 +46,8 @@ public class MybatisConfig {
         sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(evn.getProperty("mybatis.mapperLocations")));
         SqlSessionFactory resultSessionFactory = sessionFactory.getObject();
         return resultSessionFactory;
-		
-		
-	}
+
+
+    }
 
 }
