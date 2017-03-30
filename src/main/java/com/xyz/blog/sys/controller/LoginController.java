@@ -29,13 +29,15 @@ public class LoginController {
 	public ControllerResult login(User usr){
 		ControllerResult c = new ControllerResult();
 		try {
+
 			usr = loginService.login(usr);
 			System.out.println(usr);
-			if(usr==null){
+			if (usr == null) {
 				c.setCode("402");
 				c.setSuccess(-1);
 				c.setMsg("用户名密码不正确");
 			}
+
 			List<User> list = new ArrayList<User>();
 			list.add(usr);
 			c.setRows(list);

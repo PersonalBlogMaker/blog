@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.xyz.blog.cms.domain.entity.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -74,10 +75,16 @@ public class CategoryController {
 	}
 	
 	
-	@RequestMapping("/A")
-	public String A(){
+	@RequestMapping(value = "/A", method = RequestMethod.GET)
+	public Article A(Article article2){
 		System.out.println( new Date().toString());
-		return new Date().toString();
+		Article article = new Article();
+		String weight = "2";
+		if (article2!=null){
+			weight = article2.getWeight();
+		}
+		article.setWeight(weight);
+		return article;
 	}
 		
 }

@@ -16,7 +16,11 @@ public class LoginServiceImpl implements LoginService{
 	private UserDao userDao;
 	
 	public User login(User usr) throws Exception {
-		usr = userDao.findUserByAccountAndPassword(usr);
+//		usr = userDao.findUserByAccountAndPassword(usr);
+		usr.setUserName("荀亚杰");
+		usr.setId("1");
+		usr.setPassword("xunyajie");
+		usr.setAccount("xunyajie");
 		//如果查询出用户，则登录成功，并保存在。
 		if(usr!=null){
 			SessionManager.getUserSession().setAttribute("UserSession", SessionManager.getUserSession());
