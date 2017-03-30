@@ -81,9 +81,9 @@ public class CategoryController {
 		Article article = new Article();
 		String weight = "2";
 		if (article2!=null){
-			weight = article2.getWeight();
+//			weight = article2.getWeight();
 		}
-		article.setWeight(weight);
+//		article.setWeight(weight);
 		return article;
 	}
 		

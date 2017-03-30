@@ -3,6 +3,9 @@ package com.xyz.blog.sys.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +21,18 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
+	@ApiOperation(value = "跳转到登录页面", notes = "如果用户没有登录，就要跳转到登录页面")
 	@RequestMapping(value = {"","/*"}, method = RequestMethod.GET)
 	public String longin(){
 		System.out.println("进到了登录界面");
 		return "/login";
 	}
 
+	@ApiOperation(value="验证登录信息", notes = "传入User验证登录信息")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "account", value = "用户账号", required = true, dataType = "String"),
+			@ApiImplicitParam(name = "password", value = "用户密码", required = true, dataType = "String")
+	})
 	@ResponseBody
 	@RequestMapping(value="verify", method=RequestMethod.POST)
 	public ControllerResult login(User usr){

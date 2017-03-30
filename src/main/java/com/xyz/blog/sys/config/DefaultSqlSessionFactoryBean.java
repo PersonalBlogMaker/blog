@@ -90,7 +90,7 @@ public class DefaultSqlSessionFactoryBean
 
 	/**
 	 * Sets the ObjectFactory.
-	 * 
+	 *
 	 * @since 1.1.2
 	 * @param objectFactory
 	 */
@@ -100,7 +100,7 @@ public class DefaultSqlSessionFactoryBean
 
 	/**
 	 * Sets the ObjectWrapperFactory.
-	 * 
+	 *
 	 * @since 1.1.2
 	 * @param objectWrapperFactory
 	 */
