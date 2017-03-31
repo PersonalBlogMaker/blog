@@ -9,10 +9,10 @@ import java.io.Serializable;
  * Created by banma on 17/3/31.
  */
 @Data
-public class Role extends BaseEntity implements Serializable{
+public class UserRoleMap extends BaseEntity implements Serializable{
 
-    private String name;
+    private String roleId;
 
-    private String parentId;
+    private String userId;
 
 }

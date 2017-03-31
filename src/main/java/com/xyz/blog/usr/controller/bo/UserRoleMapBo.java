@@ -7,11 +7,10 @@ import lombok.Data;
  * Created by banma on 17/3/31.
  */
 @Data
-public class RoleBo extends QueryParam{
+public class UserRoleMapBo extends QueryParam {
 
-    private String name;
+    private String roleId;
 
-    private String parentId;
-
+    private String userId;
 
 }

@@ -4,7 +4,7 @@
     
     <!-- 若不需要自动返回主键，将useGeneratedKeys="true" keyProperty="id"去掉即可(当然如果不需要自动返回主键，直接用注解即可) -->
     <insert id="addCategory" parameterType="Category" >
-    	insert into category(id,name,description,create_by,create_date) values(#{id},#{name},#{description},#{createBy},#{createDate});
+    	insert into category(id,parent_id,name,description,create_by,create_date) values(#{id},#{parentId},#{name},#{description},#{createBy},#{createDate});
    	</insert>
     <select id="getListCategory" parameterType="Category" resultMap="CategoryResultMap">
     	select id, name, description, create_by, update_by, DATE_FORMAT(create_date,'%Y-%m-%d %H:%i:%s') as create_date,
@@ -19,6 +19,7 @@
          <result property="createBy" column="create_by"/>
          <result property="updateDate" column="update_date"/>
          <result property="updateBy" column="update_by"/>
+         <result property="parentId" column="parent_id"/>
     </resultMap>
   	
   	  

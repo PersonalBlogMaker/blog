@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xyz.blog.cms.domain.ArticleDao">
-    
+
     <insert id="addArticle" parameterType="Article" >
-    	insert into article(id,content, category_id, title, keywords, description, weight, hits, remark, create_by, create_date) 
+    	insert into article(id,content, category_id, title, keywords, description, weight, hits, remark, create_by, create_date)
     		values(#{id},#{content},#{categoryId},#{title},#{keywords},#{description},#{weight},#{hits},#{remark},#{createBy},#{createDate});
    	</insert>
-    
+
     <update id="updateArticle" parameterType="Article">
     	update category set category_id=#{categoryId}, title=#{title}, keywords=#{keywords}, weight=#{weight}
     	remark=#{remark},description=#{description},update_by=#{updateBy},update_date=#{updateDate} where id=#{id};
     </update>
-    
+
     <update id="deleteArticle" parameterType="Article">
     	update category set active=0 where id=#{id};
     </update>
-    
+
     <select id="getListArticle" parameterType="Article" resultMap="ArticleResultMap">
     	select id, name, description, create_by, update_by, DATE_FORMAT(create_date,'%Y-%m-%d %H:%i:%s') as create_date,
-    	 DATE_FORMAT(update_date,'%Y-%m-%d %H:%i:%s') as update_date from category where 1=1 and active=1 
+    	 DATE_FORMAT(update_date,'%Y-%m-%d %H:%i:%s') as update_date from category where 1=1 and active=1
     	 <include refid="getArticle">
     	 	<property name="categoryId" value="${categoryId}"/>
     	 	<property name="start" value="${start}"/>
     	 	<property name="pageSize" value="${pageSize}"/>
     	 </include>
     </select>
-    
+
     <select id="getArticleCount" parameterType="Article">.
     	select count(id) from category where 1=1 and active=1
     	<include refid="getArticle">
@@ -34,15 +34,15 @@
     	 	<property name="pageSize" value="${pageSize}"/>
     	</include>
     </select>
-    
+
     <sql id="getArticle">
     	<if test="categoryID != null">
     		and category_id = #{categoryId}
     	</if>
-    	order by weight , create_time desc 
+    	order by weight , create_time desc
     	limit #{start},#{pageSize}
     </sql>
-    
+
     <resultMap type="Article" id="ArticleResultMap">
    		 <result property="categoryId" column="category_id"/>
          <result property="createDate" column="create_date"/>
@@ -50,7 +50,7 @@
          <result property="updateDate" column="update_date"/>
          <result property="updateBy" column="update_by"/>
     </resultMap>
-  	
-  	  
-    
+
+
+
 </mapper>
