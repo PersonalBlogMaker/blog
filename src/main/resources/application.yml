@@ -9,7 +9,7 @@ spring:
     driverClassName : com.mysql.jdbc.Driver
   output:
     ansi:
-      enabled:      #日志打印为彩色
+      enabled: detect      #日志打印为彩色
 
 
 

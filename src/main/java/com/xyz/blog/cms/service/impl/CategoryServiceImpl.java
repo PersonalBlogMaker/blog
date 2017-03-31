@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import com.xyz.blog.cms.controller.bo.CategoryBo;
 import org.springframework.stereotype.Service;
 
 import com.xyz.blog.cms.domain.CategoryDao;
@@ -32,12 +33,12 @@ public class CategoryServiceImpl implements CategoryService{
 		cg.setId(UUID.randomUUID().toString());
 		cg.setCreateBy(usr.getUserName());
 		cg.setCreateDate(TimeUtis.Date2String(new Date()));
-		return categoryDao.addCategory(cg);
+		return categoryDao.insert(cg);
 	}
 
 	@Override
-	public List<Category> getListCategory(Category cg) throws Exception {
-		return categoryDao.getListCategory(cg);
+	public List<CategoryBo> getListCategory(CategoryBo cg) throws Exception {
+		return categoryDao.findList(cg);
 	}
 
 	@Override
@@ -45,7 +46,7 @@ public class CategoryServiceImpl implements CategoryService{
 		User usr = (User) SessionManager.getUserSession().getAttribute("User");
 		cg.setUpdateBy(usr.getUserName());
 		cg.setUpdateDate(TimeUtis.Date2String(new Date()));
-		return categoryDao.updateCategory(cg);
+		return categoryDao.update(cg);
 	}
 
 	

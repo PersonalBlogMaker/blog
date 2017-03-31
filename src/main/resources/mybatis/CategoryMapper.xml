@@ -14,7 +14,7 @@
     	update category set name=#{name}, description=#{description}, update_by=#{updateBy}, update_date=#{updateDate} where id=#{id};
     </update>
     
-    <resultMap type="Category" id="CategoryResultMap">
+    <resultMap type="CategoryBo" id="CategoryResultMap">
          <result property="createDate" column="create_date"/>
          <result property="createBy" column="create_by"/>
          <result property="updateDate" column="update_date"/>

@@ -1,15 +1,11 @@
 package com.xyz.blog.cms.domain;
 
-import java.util.List;
-
+import com.xyz.blog.cms.controller.bo.CategoryBo;
 import com.xyz.blog.cms.domain.entity.Category;
+import com.xyz.blog.sys.domain.CudDao;
+import com.xyz.blog.sys.domain.ReadDao;
 
-public interface CategoryDao {
-	
-	public int addCategory(Category cg);
-	
-	public List<Category> getListCategory(Category cg);
+public interface CategoryDao extends CudDao<Category>, ReadDao<CategoryBo>{
 
-	public int updateCategory(Category cg);
 
 }

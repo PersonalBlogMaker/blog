@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.xyz.blog.cms.controller.bo.CategoryBo;
 import com.xyz.blog.cms.domain.entity.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,17 +20,18 @@ import com.xyz.blog.sys.common.ControllerResult;
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
-	
-	@Autowired 
+
+	@Autowired
 	private CategoryService categoryServiceImpl;
-	
+
 	/**
 	 * 保存栏目
+	 *
 	 * @param
 	 * @return
 	 */
-	@RequestMapping(value="/saveCategory", method=RequestMethod.POST)
-	public ControllerResult saveCategory(@RequestBody Category category){
+	@RequestMapping(value = "/saveCategory", method = RequestMethod.POST)
+	public ControllerResult saveCategory(@RequestBody Category category) {
 		ControllerResult c = new ControllerResult();
 		try {
 			List<Integer> list = new ArrayList<Integer>();
@@ -43,12 +45,12 @@ public class CategoryController {
 		}
 		return c;
 	}
-	
-	@RequestMapping(value="/getListCategory",method=RequestMethod.GET)
-	public ControllerResult getListCategory(Category category){
+
+	@RequestMapping(value = "/getListCategory", method = RequestMethod.GET)
+	public ControllerResult getListCategory(CategoryBo categoryBo) {
 		ControllerResult c = new ControllerResult();
 		try {
-			c.setRows(categoryServiceImpl.getListCategory(category));
+			c.setRows(categoryServiceImpl.getListCategory(categoryBo));
 		} catch (Exception e) {
 			e.printStackTrace();
 			c.setCode("401");
@@ -57,9 +59,9 @@ public class CategoryController {
 		}
 		return c;
 	}
-	
-	@RequestMapping(value="/updateCategory",method=RequestMethod.POST)
-	public ControllerResult updateCategory(@RequestBody Category category){
+
+	@RequestMapping(value = "/updateCategory", method = RequestMethod.POST)
+	public ControllerResult updateCategory(@RequestBody Category category) {
 		ControllerResult c = new ControllerResult();
 		try {
 			List<Integer> list = new ArrayList<Integer>();
@@ -73,18 +75,18 @@ public class CategoryController {
 		}
 		return c;
 	}
-	
-	
+
+
 	@RequestMapping(value = "/A", method = RequestMethod.GET)
-	public Article A(Article article2){
-		System.out.println( new Date().toString());
+	public Article A(Article article2) {
+		System.out.println(new Date().toString());
 		Article article = new Article();
 		String weight = "2";
-		if (article2!=null){
+		if (article2 != null) {
 //			weight = article2.getWeight();
 		}
 //		article.setWeight(weight);
 		return article;
 	}
-		
+
 }
